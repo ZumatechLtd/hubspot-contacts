@@ -20,8 +20,8 @@ from voluptuous import Schema
 from hubspot.contacts.properties import PROPERTY_TYPE_BY_NAME
 
 PROPERTY_RESPONSE_SCHEMA_DEFINITION = {
-    'name': unicode,
-    'type': Any(*PROPERTY_TYPE_BY_NAME.keys()),
+    'name': str,
+    'type': Any(*list(PROPERTY_TYPE_BY_NAME.keys())),
     'options': [],
 }
 

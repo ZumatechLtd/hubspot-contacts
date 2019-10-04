@@ -46,7 +46,7 @@ _CONTACT_LIST_COLLECTION_URL_PATH = CONTACTS_API_SCRIPT_NAME + '/lists'
 
 
 _PROPERTY_VALUE_CONVERTER_BY_PROPERTY_TYPE = defaultdict(
-    lambda: unicode,
+    lambda: str,
     {
         BooleanProperty: json_deserialize,
         DateProperty: convert_timestamp_in_milliseconds_to_date,
@@ -432,7 +432,7 @@ def _build_contact_from_data(contact_data, property_type_by_property_name):
         _get_contact_vids_from_contact_profiles_data(related_profiles_data)
 
     properties = {}
-    for property_name, property_value in contact_data['properties'].items():
+    for property_name, property_value in list(contact_data['properties'].items()):
         property_type = property_type_by_property_name.get(property_name)
         if property_type and property_value:
             converter = \

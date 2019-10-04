@@ -41,7 +41,7 @@ def format_data_for_property(property_):
 
 def _get_property_type_name(property_):
     _PROPERTY_TYPE_NAME_BY_PROPERTY_TYPE = \
-        {type_: type_name for type_name, type_ in PROPERTY_TYPE_BY_NAME.items()}
+        {type_: type_name for type_name, type_ in list(PROPERTY_TYPE_BY_NAME.items())}
 
     property_type = property_.__class__
     property_type_name = _PROPERTY_TYPE_NAME_BY_PROPERTY_TYPE[property_type]
@@ -63,7 +63,7 @@ def _get_raw_property_options(property_):
             ]
     elif isinstance(property_, EnumerationProperty):
         raw_options_data = []
-        for option_value, option_label in property_.options.items():
+        for option_value, option_label in list(property_.options.items()):
             option_data = {
                 'label': option_label,
                 'value': option_value,

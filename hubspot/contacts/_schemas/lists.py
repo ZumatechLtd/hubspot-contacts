@@ -2,7 +2,7 @@ from voluptuous import Schema
 
 
 CONTACT_LIST_SCHEMA = Schema(
-    {'listId': int, 'name': unicode, 'dynamic': bool},
+    {'listId': int, 'name': str, 'dynamic': bool},
     required=True,
     extra=True,
     )

@@ -105,7 +105,7 @@ class TestContactListsRetrieval(object):
 
     def test_getting_existing_contact_lists_multiple_pages(self):
         contact_lists = []
-        for index in xrange(0, BATCH_RETRIEVAL_SIZE_LIMIT + 1):
+        for index in range(0, BATCH_RETRIEVAL_SIZE_LIMIT + 1):
             contact_list = ContactList(
                 index,
                 'list{}'.format(index),
@@ -220,9 +220,7 @@ class TestContactListDeletion(object):
                 delete_contact_list(invalid_contact_list_id, connection)
 
 
-class _BaseContactListMembershipUpdateTestCase(object):
-
-    __metaclass__ = ABCMeta
+class _BaseContactListMembershipUpdateTestCase(object, metaclass=ABCMeta):
 
     _SIMULATOR_CLASS = abstractproperty()
 
@@ -500,9 +498,7 @@ def _split_list(list_, index):
     return list_[:index], list_[index:]
 
 
-class _BaseGettingContactsTestCase(object):
-
-    __metaclass__ = ABCMeta
+class _BaseGettingContactsTestCase(object, metaclass=ABCMeta):
 
     _RETRIEVER = abstractproperty()
 
@@ -597,15 +593,15 @@ class _BaseGettingContactsTestCase(object):
     def test_property_type_casting(self):
         test_cases_data = [
             (STUB_BOOLEAN_PROPERTY, 'true', True),
-            (STUB_DATE_PROPERTY, u'1396569600000', date(2014, 4, 4)),
+            (STUB_DATE_PROPERTY, '1396569600000', date(2014, 4, 4)),
             (
                 STUB_DATETIME_PROPERTY,
-                u'1396607280140',
+                '1396607280140',
                 datetime(2014, 4, 4, 10, 28, 0, 140000),
                 ),
             (STUB_ENUMERATION_PROPERTY, 'value1', 'value1'),
             (STUB_NUMBER_PROPERTY, '1.01', Decimal('1.01')),
-            (STUB_STRING_PROPERTY, u'value', u'value'),
+            (STUB_STRING_PROPERTY, 'value', 'value'),
             ]
 
         for property_, raw_value, expected_value in test_cases_data:
@@ -633,7 +629,7 @@ class _BaseGettingContactsTestCase(object):
 
     def test_simulator_type_casting(self):
         enumeration_property_value = \
-            STUB_ENUMERATION_PROPERTY.options.values()[0]
+            list(STUB_ENUMERATION_PROPERTY.options.values())[0]
 
         properties_and_values = (
             (STUB_BOOLEAN_PROPERTY, True),
@@ -805,9 +801,7 @@ class TestGettingAllContacts(_BaseGettingContactsTestCase):
         self._check_contacts_from_simulated_retrieval_equal(contacts, contacts)
 
 
-class _BaseTestUnsuccessfulGettingAllContacts(object):
-
-    __metaclass__ = ABCMeta
+class _BaseTestUnsuccessfulGettingAllContacts(object, metaclass=ABCMeta):
 
     _RETRIEVER = abstractproperty()
 

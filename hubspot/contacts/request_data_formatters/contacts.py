@@ -67,7 +67,7 @@ def _format_contact_properties_for_saving(
     property_type_by_property_name,
     ):
     contact_properties_data = []
-    for property_name, property_value in contact_properties.items():
+    for property_name, property_value in list(contact_properties.items()):
         property_type = property_type_by_property_name[property_name]
         property_value_cast = \
             _serialize_property_value(property_value, property_type)
@@ -83,7 +83,7 @@ def _serialize_property_value(property_value, property_type):
     else:
         converter = _PROPERTY_VALUE_CONVERTER_BY_PROPERTY_TYPE[property_type]
         property_value_cast = converter(property_value)
-        property_value_serialized = unicode(property_value_cast)
+        property_value_serialized = str(property_value_cast)
     return property_value_serialized
 
 

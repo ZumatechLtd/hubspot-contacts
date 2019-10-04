@@ -148,7 +148,7 @@ def test_getting_all_contacts():
             ('lastmodifieddate',) + requested_property_names
         assert_items_equal(
             expected_property_names,
-            first_contact.properties.keys(),
+            list(first_contact.properties.keys()),
         )
 
 
@@ -170,7 +170,7 @@ def test_getting_all_contacts_by_last_update():
             ('lastmodifieddate',) + requested_property_names
         assert_items_equal(
             expected_property_names,
-            first_contact.properties.keys(),
+            list(first_contact.properties.keys()),
         )
 
         contacts_from_future = get_all_contacts_by_last_update(

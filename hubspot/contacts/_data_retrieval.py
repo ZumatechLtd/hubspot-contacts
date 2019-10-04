@@ -82,7 +82,7 @@ def _convert_to_camel_case(string):
 
 
 def _translate_dict_keys(dict_, translation_dict):
-    return {translation_dict[k]: v for k, v in dict_.items()}
+    return {translation_dict[k]: v for k, v in list(dict_.items())}
 
 
 def _filter_dict(dict_, keys):

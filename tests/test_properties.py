@@ -126,7 +126,7 @@ class TestCreatingProperty(object):
 
     def test_all_fields_set(self):
         property_ = STUB_NUMBER_PROPERTY
-        field_values = property_.get_field_values().values()
+        field_values = list(property_.get_field_values().values())
         are_all_fields_set = all(field_values)
         ok_(
             are_all_fields_set,

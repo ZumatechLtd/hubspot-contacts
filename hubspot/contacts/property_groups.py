@@ -35,15 +35,15 @@ PropertyGroup = Record.create_type(
 )
 
 _PROPERTY_GROUP_CREATION_SCHEMA = Schema(
-    {'name': unicode, 'displayName': unicode},
+    {'name': str, 'displayName': str},
     required=True,
     extra=True,
 )
 
 _PROPERTY_GROUPS_RETRIEVAL_SCHEMA = Schema(
     [{
-        'name': unicode,
-        'displayName': unicode,
+        'name': str,
+        'displayName': str,
         Optional('properties'): [PROPERTY_RESPONSE_SCHEMA_DEFINITION],
     }],
     required=True,

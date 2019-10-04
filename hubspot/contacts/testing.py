@@ -57,9 +57,7 @@ import json
 STUB_LAST_MODIFIED_DATETIME = datetime.now().replace(microsecond=0)
 
 
-class _PaginatedObjectsRetriever(object):
-
-    __metaclass__ = ABCMeta
+class _PaginatedObjectsRetriever(object, metaclass=ABCMeta):
 
     _API_CALL_PATH_INFO = abstractproperty()
 
@@ -276,7 +274,7 @@ class GetAllContacts(_PaginatedObjectsRetriever):
             property_value = \
                 convert_date_to_timestamp_in_milliseconds(property_value)
 
-        property_value = unicode(property_value)
+        property_value = str(property_value)
         return property_value
 
     @staticmethod
@@ -839,9 +837,7 @@ class GetAllProperties(object):
         return [get_all_properties_api_call]
 
 
-class _BaseCreateProperty(object):
-
-    __metaclass__ = ABCMeta
+class _BaseCreateProperty(object, metaclass=ABCMeta):
 
     def __init__(self, property_):
         """
@@ -977,9 +973,7 @@ class GetAllPropertyGroups(object):
         return [api_call]
 
 
-class _BaseCreatePropertyGroup(object):
-
-    __metaclass__ = ABCMeta
+class _BaseCreatePropertyGroup(object, metaclass=ABCMeta):
 
     def __init__(self, property_group):
         """
@@ -1140,9 +1134,7 @@ class GetAllContactLists(_PaginatedObjectsRetriever):
         return contact_lists_data
 
 
-class _BaseCreateStaticContactList(object):
-
-    __metaclass__ = ABCMeta
+class _BaseCreateStaticContactList(object, metaclass=ABCMeta):
 
     def __init__(self, contact_list_name):
         super(_BaseCreateStaticContactList, self).__init__()
@@ -1247,9 +1239,7 @@ class DeleteContactList(object):
         return [api_call]
 
 
-class _UpdateContactListMembership(object):
-
-    __metaclass__ = ABCMeta
+class _UpdateContactListMembership(object, metaclass=ABCMeta):
 
     url_path_list_action = abstractproperty()
 

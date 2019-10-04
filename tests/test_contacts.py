@@ -69,30 +69,30 @@ class TestSavingContacts(object):
 
     def test_property_type_casting(self):
         test_cases_data = [
-            (STUB_BOOLEAN_PROPERTY, True, u'true'),
-            (STUB_BOOLEAN_PROPERTY, False, u'false'),
-            (STUB_BOOLEAN_PROPERTY, 'text', u'true'),
-            (STUB_BOOLEAN_PROPERTY, '', u'false'),
+            (STUB_BOOLEAN_PROPERTY, True, 'true'),
+            (STUB_BOOLEAN_PROPERTY, False, 'false'),
+            (STUB_BOOLEAN_PROPERTY, 'text', 'true'),
+            (STUB_BOOLEAN_PROPERTY, '', 'false'),
             (
                 STUB_DATE_PROPERTY,
                 datetime(2014, 4, 4, 10, 28, 0, 140000),
-                u'1396569600000',
+                '1396569600000',
                 ),
-            (STUB_DATE_PROPERTY, date(2014, 4, 4), u'1396569600000'),
+            (STUB_DATE_PROPERTY, date(2014, 4, 4), '1396569600000'),
             (
                 STUB_DATETIME_PROPERTY,
                 datetime(2014, 4, 4, 10, 28, 0, 140000),
-                u'1396607280140',
+                '1396607280140',
                 ),
-            (STUB_DATETIME_PROPERTY, date(2014, 4, 4), u'1396569600000'),
-            (STUB_ENUMERATION_PROPERTY, u'value1', u'value1'),
-            (STUB_ENUMERATION_PROPERTY, 123, u'123'),
-            (STUB_NUMBER_PROPERTY, Decimal('123.01'), u'123.01'),
-            (STUB_NUMBER_PROPERTY, 123, u'123'),
-            (STUB_NUMBER_PROPERTY, '123', u'123'),
-            (STUB_STRING_PROPERTY, u'valúe', u'valúe'),
-            (STUB_STRING_PROPERTY, 'value', u'value'),
-            (STUB_STRING_PROPERTY, 123, u'123'),
+            (STUB_DATETIME_PROPERTY, date(2014, 4, 4), '1396569600000'),
+            (STUB_ENUMERATION_PROPERTY, 'value1', 'value1'),
+            (STUB_ENUMERATION_PROPERTY, 123, '123'),
+            (STUB_NUMBER_PROPERTY, Decimal('123.01'), '123.01'),
+            (STUB_NUMBER_PROPERTY, 123, '123'),
+            (STUB_NUMBER_PROPERTY, '123', '123'),
+            (STUB_STRING_PROPERTY, 'valúe', 'valúe'),
+            (STUB_STRING_PROPERTY, 'value', 'value'),
+            (STUB_STRING_PROPERTY, 123, '123'),
             ]
 
         for property_, original_value, expected_value in test_cases_data:
